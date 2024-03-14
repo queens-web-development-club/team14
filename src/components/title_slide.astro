@@ -1,0 +1,58 @@
+<div class="home-image-container">
+    <div class="overlay"></div>
+    <img src="aigsq/title-bg.jpg" alt="">
+    <h1>Welcome to the Indian Graduate Student Association at Queen's University</h1>
+    <h2>Empowering Indian Scholars, Embracing Cultural Diversity!</h2>
+    <section>
+        <span><a href="/about">Learn More</a></span>
+        <span><a href="/membership">Join Us</a></span>
+    </section>
+</div>
+
+<style>
+	.home-image-container {
+		position: relative;		/* Make coordinate system of children relative to this container */
+		display: inline-block;
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 99.5%;      /* 100% goes just a bit over the bottom of image */
+		width: 100%;
+		background-color: rgba(238, 126, 55, 0.77); 	/* Orange color with 70% opacity */
+	}
+
+    h1 {
+        position: absolute;
+        top: 7.5rem;
+        left: 8rem;
+    }
+
+    h2 {
+        position: absolute;
+        top: 25rem;
+        left: 8rem;
+    }
+
+    section {
+        position: absolute;
+        top: 30rem;
+        left: 8rem;
+        height: 5%;
+        width: 21%;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    section span {
+        background-color: #006E5E;
+    }
+
+    section span a {
+        text-decoration: none;
+    }
+</style>
