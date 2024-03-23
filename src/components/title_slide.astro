@@ -1,45 +1,68 @@
-<div class="home-image-container">
-    <div class="overlay"></div>
-    <img src="aigsq/title-bg.jpg" alt="">
-    <h1>Welcome to the Indian Graduate Student Association at Queen's University</h1>
-    <h2>Empowering Indian Scholars, Embracing Cultural Diversity!</h2>
-    <section>
-        <span><a href="/about">Learn More</a></span>
-        <span><a href="/membership">Join Us</a></span>
-    </section>
+---
+
+---
+
+<div class="title-slide-container">
+    <div class="full-width-content">
+        <img src="aigsq/title-bg.jpg" alt="">
+        <div class="overlay"></div>
+        <h1>Welcome to the Indian Graduate Student Association at Queen's University</h1>
+        <h2>Empowering Indian Scholars, Embracing Cultural Diversity!</h2>
+        <section>
+            <span><a href="/about">Learn More</a></span>
+            <span><a href="/membership">Join Us</a></span>
+        </section>
+    </div>
 </div>
+  
 
 <style>
-	.home-image-container {
-		position: relative;		/* Make coordinate system of children relative to this container */
-		display: inline-block;
-	}
+	/* Set the position of the full-width container to absolute, positioning it relative 
+        to body which is the full viewport. Removes element from normal document flow. */
+    .title-slide-container {
+        position: absolute;
+        left: 0;
+        width: 100%;            /* Make the container span the entire width of the viewport */
+        height: auto;           /* Automatically adjust the height to match the content */
+    }
 
-	.overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 99.5%;      /* 100% goes just a bit over the bottom of image */
-		width: 100%;
-		background-color: rgba(238, 126, 55, 0.77); 	/* Orange color with 70% opacity */
-	}
+    /* Set the position of the full-width content to relative to 
+        make coordinate system of absolutely positioned children relative to this container */
+    .full-width-content {
+        position: relative;
+        width: 100%;            /* Make the content span the entire width of its container */
+    }
+
+    .full-width-content img {
+        width: 100%;            /* Make the content span the entire width of its container */
+        height: auto;           /* Allow the height to adjust proportionally to maintain aspect ratio */
+    }
+
+    .overlay {
+        position: absolute;     /* Position the overlay relative to its closest positioned ancestor */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(238, 126, 55, 0.77); 	/* Orange color with 70% opacity */
+    }
 
     h1 {
         position: absolute;
-        top: 7.5rem;
-        left: 8rem;
+        top: 21%;
+        left: 8.5%;
     }
 
     h2 {
         position: absolute;
-        top: 25rem;
-        left: 8rem;
+        top: 62%;
+        left: 8.5%;
     }
 
     section {
         position: absolute;
-        top: 30rem;
-        left: 8rem;
+        top: 74%;
+        left: 8.5%;
         height: 5%;
         width: 21%;
         border: 1px solid red;

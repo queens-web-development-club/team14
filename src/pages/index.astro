@@ -1,12 +1,13 @@
 ---
 import Navbar from "../components/navbar.astro";
 import Title from "../components/title_slide.astro"
+import OurMission from "../components/our_mission.astro"
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="aigsq/logoslim.jpg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>AIGSQ - Queen's University</title>
@@ -14,5 +15,28 @@ import Title from "../components/title_slide.astro"
 	<body>
 		<Navbar></Navbar>
 		<Title></Title>
+		<OurMission></OurMission>
+		<p>
+			testte
+		</p>
+		<script>
+			function adjustMarginTop() {
+				var fullWidthContent = document.querySelector('.title-slide-container') as HTMLElement;
+				var otherSection = document.querySelector('.our-mission-container') as HTMLElement;
+				console.log(fullWidthContent)
+				console.log(otherSection)
+				// Ensure elements are not null before accessing properties
+				if (fullWidthContent && otherSection) {
+					// Get the height of the fixed-positioned element
+					var fixedHeight = fullWidthContent.offsetHeight;
+			
+					// Set margin-top for the next section to match the height of the fixed element
+					otherSection.style.marginTop = fixedHeight + 'px';
+				}
+			}
+			window.addEventListener('DOMContentLoaded', adjustMarginTop);
+			window.addEventListener('resize', adjustMarginTop);
+		  </script>
+		  
 	</body>
 </html>
