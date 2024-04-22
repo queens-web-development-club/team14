@@ -2,6 +2,7 @@
 import Navbar from "../components/navbar.astro";
 import Title from "../components/title_slide.astro"
 import OurMission from "../components/our_mission.astro"
+import WhatWeDo from "../components/what_we_do.astro";
 ---
 
 <html lang="en">
@@ -16,27 +17,26 @@ import OurMission from "../components/our_mission.astro"
 		<Navbar></Navbar>
 		<Title></Title>
 		<OurMission></OurMission>
-		<p>
-			testte
-		</p>
+		<WhatWeDo></WhatWeDo>  
 		<script>
 			function adjustMarginTop() {
-				var fullWidthContent = document.querySelector('.title-slide-container') as HTMLElement;
-				var otherSection = document.querySelector('.our-mission-container') as HTMLElement;
-				console.log(fullWidthContent)
-				console.log(otherSection)
+				var fixed_layer1 = document.querySelector('.title-slide-container') as HTMLElement;
+				var layer2 = document.querySelector('.our-mission-container') as HTMLElement;
+				var layer3 = document.querySelector('.what-we-do-container') as HTMLElement;
+	
 				// Ensure elements are not null before accessing properties
-				if (fullWidthContent && otherSection) {
+				if (fixed_layer1 && layer2 && layer3) {
 					// Get the height of the fixed-positioned element
-					var fixedHeight = fullWidthContent.offsetHeight;
-			
+					var fixedHeight = fixed_layer1.offsetHeight;
 					// Set margin-top for the next section to match the height of the fixed element
-					otherSection.style.marginTop = fixedHeight + 'px';
+					layer2.style.marginTop = fixedHeight + 'px';
+
+					var layer2_height = layer2.offsetHeight;
+					layer3.style.marginTop = fixedHeight + layer2_height + 'px';
 				}
 			}
 			window.addEventListener('DOMContentLoaded', adjustMarginTop);
 			window.addEventListener('resize', adjustMarginTop);
-		  </script>
-		  
+		</script>
 	</body>
 </html>
