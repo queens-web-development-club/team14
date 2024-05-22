@@ -3,6 +3,7 @@ import Navbar from "../components/navbar.astro";
 import Title from "../components/title_slide.astro"
 import OurMission from "../components/our_mission.astro"
 import WhatWeDo from "../components/what_we_do.astro";
+import OurMemories from "../components/our_memories.astro";
 ---
 
 <html lang="en">
@@ -10,9 +11,8 @@ import WhatWeDo from "../components/what_we_do.astro";
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="aigsq/logoslim.jpg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-        <!-- <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet"> -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>AIGSQ - Queen's University</title>
@@ -22,25 +22,12 @@ import WhatWeDo from "../components/what_we_do.astro";
 		<Title></Title>
 		<OurMission></OurMission>
 		<WhatWeDo></WhatWeDo>  
-		<script>
-			function adjustMarginTop() {
-				var fixed_layer1 = document.querySelector('.title-slide-container') as HTMLElement;
-				var layer2 = document.querySelector('.our-mission-container') as HTMLElement;
-				var layer3 = document.querySelector('.what-we-do-container') as HTMLElement;
-	
-				// Ensure elements are not null before accessing properties
-				if (fixed_layer1 && layer2 && layer3) {
-					// Get the height of the fixed-positioned element
-					var fixedHeight = fixed_layer1.offsetHeight;
-					// Set margin-top for the next section to match the height of the fixed element
-					layer2.style.marginTop = fixedHeight + 'px';
-
-					var layer2_height = layer2.offsetHeight;
-					layer3.style.marginTop = fixedHeight + layer2_height + 'px';
-				}
-			}
-			window.addEventListener('DOMContentLoaded', adjustMarginTop);
-			window.addEventListener('resize', adjustMarginTop);
-		</script>
+		<OurMemories></OurMemories>
 	</body>
 </html>
+
+<style>
+	body {
+		margin: 0;
+	}
+</style>
