@@ -1,15 +1,64 @@
 ---
-
+let images1 = ["0.jpg", "4.jpg"];
+let images2 = ["1.jpg"];
+let images3 = ["2.jpg"];
+let images4 = ["3.jpg"];
 ---
 
 <section>
     <h2>Our Memories</h2>
-    <div>
-        
+    <div class="row">
+        <div class="column">
+            <!-- Display images from images1 array -->
+            {images1.map(image => (
+                <img src={`Home/OurMemories/${image}`}/>
+            ))}
+        </div>
+        <div class="column">
+            {images2.map(image => (
+                <img src={`Home/OurMemories/${image}`}/>
+            ))}
+        </div>
+        <div class="column">
+            {images3.map(image => (
+                <img src={`Home/OurMemories/${image}`}/>
+            ))}
+        </div>
+        <div class="column">
+            {images4.map(image => (
+                <img src={`Home/OurMemories/${image}`}/>
+            ))}
+        </div>
     </div>
 </section>
 
 
 <style>
+    section {
+        padding-top: 6vh;
+    }
+    h2 {
+        text-align: center;
+        font-family: 'League Spartan';
+        /* font-size: 3rem; */
+    }
+    .row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
 
+    /* Create four equal columns that sits next to each other */
+    .column {
+        flex: 20%;
+        max-width: 20%;
+        padding: 0 4px;
+    }
+
+    .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+    }
 </style>
