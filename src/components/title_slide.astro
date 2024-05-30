@@ -8,8 +8,8 @@
     <h1>Welcome to the Indian Graduate Student Association at Queen's University</h1>
     <h2>Empowering Indian Scholars, Embracing Cultural Diversity!</h2>
     <section>
-        <span><a href="/about">Learn More</a></span>
-        <span><a href="/membership">Join Us</a></span>
+        <a href="/about"><span>Learn More</span></a>
+        <a href="/membership"><span>Join Us</span></a>
     </section>
 </div>
   
@@ -63,21 +63,24 @@
         left: 8%;
         height: 5.5%;
         width: 28%;
-        border: 1px solid red;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    section span {
+    section a {
         background-color: #006E5E;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 40%;
+        text-decoration: none;
+        /* border-radius: 15px; */
     }
 
-    section span a {
-        text-decoration: none;
+    section a span {
+        color: white;
+        font-family: 'Libre Baskerville';
+        font-size: 1.25rem;
     }
 </style>
