@@ -6,19 +6,25 @@ import StatBar from "../components/stats_bar.astro";
     <div class="what-we-do">
         <h2>What we do...</h2>
         <section>
-            <div>
+            <div class="circle-container">
+                <img src="Home/white-circle.png" class="circle" alt="">
+                <img src="Home/white-circle.png" class="circle" alt="">
+                <img src="Home/white-circle.png" class="circle" alt="">
+                <img src="Home/white-circle.png" class="circle" alt="">
+            </div>
+            <div class="icon-div">
                 <img src="Home/handshake_icon.png" alt="">
                 <p>Peer-to-Peer Support</p>
             </div>
-            <div>
+            <div class="icon-div">
                 <img src="Home/teaching_icon.png" alt="">
                 <p>Career Mentorship</p>
             </div>
-            <div>
+            <div class="icon-div">
                 <img src="Home/presentation_icon.png" alt="">
                 <p>Professional Development</p>
             </div>
-            <div>
+            <div class="icon-div">
                 <img src="Home/talking_icon.png" alt="">
                 <p>Cultural Exchange</p>
             </div>
@@ -50,20 +56,37 @@ import StatBar from "../components/stats_bar.astro";
     }
 
     section {
+        position: relative;
         width: 80%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    section div {
+    .icon-div {
         display: flex;
         flex-direction: column;
         align-items: center;
+        z-index: 1;
     }
 
     img {
         width: 20%;
+        height: auto;
+    }
+
+    .circle-container {
+        position: absolute;
+        left: 0%;
+        top: -13%;
+        padding: 0 8.75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .circle {
+        width: 8.75%;
         height: auto;
     }
 </style>
