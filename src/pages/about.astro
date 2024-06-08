@@ -1,5 +1,11 @@
 ---
 import Navbar from "../components/navbar.astro";
+import ImageScaffold from "../components/img_scaffold.astro"
+import Footer from "../components/footer.astro";
+import StatsBar from "../components/stats_bar.astro";
+import ExecTeam from "../components/exec_team.astro";
+
+let ambassadors = "AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
 ---
 
 <html lang="en">
@@ -7,9 +13,91 @@ import Navbar from "../components/navbar.astro";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=League+Spartan:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
         <title>About Us - AIGSQ - Queen's University</title>
     </head>
     <body>
         <Navbar></Navbar>
+        <header>
+            <h1>About Us</h1>
+            <h2>Empowering Indian Scholars, Embracing <br/> Cultural Diversity!</h2>
+        </header>
+        <ImageScaffold></ImageScaffold>
+        <StatsBar></StatsBar>
+        <ExecTeam></ExecTeam>
+        <h1 id="ambassadors-title">Brand Ambassadors</h1>
+        <img src={ambassadors} alt="" id="ambassadors">
+        <Footer></Footer>
     </body>
 </html>
+
+<style>
+    html {
+		font-size: 16px;
+	}
+	
+	@media (max-width: 2000px) {
+		html {
+			font-size: 12px;
+		}
+	}
+
+	@media (max-width: 1600px) {
+		html {
+			font-size: 9.5px;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		html {
+			font-size: 7.5px;
+		}
+	}
+
+	@media (max-width: 900px) {
+		html {
+			font-size: 6px;
+		}
+	}
+
+    body {
+        margin: 0;
+    }
+
+    header {
+        background-color: #006E5E;
+        text-align: center;
+        padding: 1.25rem 0;
+        margin-bottom: 6vh;
+    }
+
+    h1 {
+        font-family: 'League Spartan';
+        font-weight: 700;
+        font-size: 5rem;
+        color: white;
+    }
+
+    h2 {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 2rem;
+        color: white;
+    }
+
+    #ambassadors-title {
+        padding-top: 6vh;
+        text-align: center;
+        font-family: 'League Spartan';
+        font-size: 3.5rem;
+        color: black;
+    }
+
+    #ambassadors {
+        margin-top: 20px;
+        width: 50%;
+        margin-left: 25%;
+    }
+</style>

@@ -1,0 +1,60 @@
+---
+let execTeam1 = ["AboutUs/TeamMembers/ExecTeam/Ahamed.jpg", "AboutUs/TeamMembers/ExecTeam/Aishwarya.jpg"];
+let execTeam2 = ["AboutUs/TeamMembers/ExecTeam/Arijit.jpg", "AboutUs/TeamMembers/ExecTeam/bhaya.jpg"];
+let execTeam3 = ["AboutUs/TeamMembers/ExecTeam/Harsh.jpg", "AboutUs/TeamMembers/ExecTeam/Neeraj.jpg"];
+---
+
+<section>
+    <h1>Our Executive Committee</h1>
+    <div class="row">
+        <div class="column">
+            <!-- Display images from images1 array -->
+            {execTeam1.map(image => (
+                <img src={`${image}`}/>
+            ))}
+        </div>
+        <div class="column">
+            {execTeam2.map(image => (
+                <img src={`${image}`}/>
+            ))}
+        </div>
+        <div class="column">
+            {execTeam3.map(image => (
+                <img src={`${image}`}/>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        padding-top: 6vh;
+        margin-bottom: 6vh;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'League Spartan';
+        font-size: 3.5rem;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* padding: 0 4px; */
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+        flex: 20%;
+        max-width: 20%;
+        padding: 0 20px;
+    }
+
+    .column img {
+        margin: 20px 0;
+        vertical-align: middle;
+        width: 100%;
+    }
+</style>

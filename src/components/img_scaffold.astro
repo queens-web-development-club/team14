@@ -1,0 +1,165 @@
+---
+let event1 = {
+    title: "Celebrate Diversity, Celebrate With Us!",
+    blurb: "Dive into the heart of Queen's Community with AIGSQ's vibrant cultural festivals. From the dazzling lights of Diwali to the colourful splashes of Holi, and the patriotic zeal of Republic and Independence Day, we're all about bringing traditions to life. Join us as we continue to weave a tapestry of diverse cultures and celebrations!",
+    image: "AboutUs/Cultural.jpg",
+    date: "XX/XX/XXXX"
+}
+
+let event2 = {
+    title: "Unlock Your Potential with Tech!",
+    blurb: "At AIGSQ, we're not just about fun; we're about your future. With alumni talks, career workshops, and a peer mentorship program, we're here to light up your path to professional greatness. Whether you're into coding, writing, or innovating, we've got something to spark your technical curiosity.",
+    image: "AboutUs/Technical.jpg",
+    date: "01/29/2022"
+}
+
+let event3 = {
+    title: "Make Memories, Make a Difference!",
+    blurb: "Beyond the tech and the festivities, we stand for community. Partnering with the City of Kingston and the Kingston Rowing Club, we've brought our members closer to nature and community service. From clean-up drives to sunny days of rowing, our social events are where fun meets purpose. Come, be a part of something bigger!",
+    image: "AboutUs/Social.jpg",
+    date: "06/30/2022"
+}
+---
+
+<div class="parent">
+    <div class="event1">
+        <h3>{event1.title}</h3>
+        <p>
+            {event1.blurb}
+        </p>
+    </div>
+    <img class="image1" src={event1.image} alt="">
+    <h2 class="date1">{event1.date}</h2>
+    
+    <div class="event2">
+        <h3>{event2.title}</h3>
+        <p>
+            {event2.blurb}
+        </p>
+    </div>
+    <img class="image2" src={event2.image} alt="">
+    <h2 class="date2">{event2.date}</h2>
+
+    <div class="event3">
+        <h3>{event3.title}</h3>
+        <p>
+            {event3.blurb}
+        </p>
+    </div>
+    <img class="image3" src={event3.image} alt="">
+    <h2 class="date3">{event3.date}</h2>
+</div>
+
+<style>
+    .parent {
+        /* background-color: aqua; */
+        display: grid;
+        grid-template-columns: repeat(30, 1fr);
+        grid-template-rows: repeat(44, 2.9rem);
+    }
+
+    .parent h2 {
+        font-family: 'League Spartan';
+        font-size: 3.5rem;
+        margin-top: 20px;
+    }
+
+    .parent h3 {
+        font-family: 'League Spartan';
+        font-size: 2.5rem;
+        margin-top: 3.25rem;
+    }
+
+    .parent p {
+        font-family: 'Inter';
+        font-size: 1.5rem;
+        letter-spacing: 1.25px;
+        line-height: 2.25rem;
+    }
+
+    .parent img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .parent div {
+        /* background-color: azure; */
+        border: 5px solid rgba(238, 126, 55, 1);
+    }
+
+
+    .image1 {
+        grid-area: 1/3/span 11/span 15;
+    }
+
+    .date1 {
+        grid-area: 2/25/3/span 4;
+    }
+
+    .event1 {
+        color: black;
+        grid-area: 3/14/span 11/span 16;
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+    }
+    
+    .event1 h3 {
+        grid-area: 1/7/2/span 13;
+    }
+
+    .event1 p {
+        grid-area: 2/7/10/span 13;
+    }
+
+
+    .image2 {
+        grid-area: 15/14/span 11/span 15;
+        border: 1px solid black;
+    }
+
+    .date2 {
+        grid-area: 16/3/17/span 4;
+    }
+
+    .event2 {
+        color: black;
+        grid-area: 17/2/span 11/span 16;
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+    }
+
+    .event2 h3 {
+        grid-area: 1/2/2/span 13;
+    }
+
+    .event2 p {
+        grid-area: 2/2/10/span 13;
+    }
+
+
+    .image3 {
+        grid-area: 30/3/span 11/span 15;
+    }
+
+    .date3 {
+        grid-area: 31/25/32/span 4;
+    }
+
+    .event3 {
+        color: black;
+        grid-area: 32/14/span 11/span 16;
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+    }
+
+    .event3 h3 {
+        grid-area: 1/7/2/span 13;
+    }
+
+    .event3 p {
+        grid-area: 2/7/10/span 13;
+    }
+</style>
