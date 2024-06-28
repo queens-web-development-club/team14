@@ -5,6 +5,8 @@ import Footer from "../components/footer.astro";
 import StatsBar from "../components/stats_bar.astro";
 import ExecTeam from "../components/exec_team.astro";
 
+import '../styles/global.css';
+
 let ambassadors = "AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
 ---
 
@@ -27,45 +29,13 @@ let ambassadors = "AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
         <ImageScaffold></ImageScaffold>
         <StatsBar></StatsBar>
         <ExecTeam></ExecTeam>
-        <h1 id="ambassadors-title">Brand Ambassadors</h1>
+        <h1 id="ambassadors-title">Ambassadors</h1>
         <img src={ambassadors} alt="" id="ambassadors">
         <Footer></Footer>
     </body>
 </html>
 
 <style>
-    html {
-		font-size: 16px;
-	}
-	
-	@media (max-width: 2000px) {
-		html {
-			font-size: 12px;
-		}
-	}
-
-	@media (max-width: 1600px) {
-		html {
-			font-size: 9.5px;
-		}
-	}
-
-	@media (max-width: 1200px) {
-		html {
-			font-size: 7.5px;
-		}
-	}
-
-	@media (max-width: 900px) {
-		html {
-			font-size: 6px;
-		}
-	}
-
-    body {
-        margin: 0;
-    }
-
     header {
         background-color: #006E5E;
         text-align: center;
