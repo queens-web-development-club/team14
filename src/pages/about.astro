@@ -6,6 +6,7 @@ import StatsBar from "../components/stats_bar.astro";
 import ExecTeam from "../components/exec_team.astro";
 
 import '../styles/global.css';
+// import {ambassadorsImage} from "../api/getCurrentTeamMembers";
 
 let ambassadors = "AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
 ---
@@ -30,6 +31,7 @@ let ambassadors = "AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
         <StatsBar></StatsBar>
         <ExecTeam></ExecTeam>
         <h1 id="ambassadors-title">Ambassadors</h1>
+        <!-- <img src={ambassadorsImage.url} alt="" id="ambassadors"> -->
         <img src={ambassadors} alt="" id="ambassadors">
         <Footer></Footer>
     </body>
