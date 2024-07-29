@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/navbar.astro";
+import SellingPoints from "../components/selling_points.astro";
 import Footer from "../components/footer.astro";
 
 import '../styles/global.css';
@@ -33,11 +34,11 @@ import '../styles/global.css';
                     for international students from the Indian subcontinent diaspora to the Queens community. I wish the current 
                     team to keep contributing to creating a vibrant community that fosters cultural connections and supports 
                     academic success for everyone."</p>
-                <span class="name">- Atul Jaiswal</span>
+                <span class="name">- Atul Jaiswal (Co-Founder)</span>
             </div>
         </section>
         <hr />
-
+        <SellingPoints></SellingPoints>
         <Footer></Footer>
     </body>
 </html>
@@ -70,10 +71,10 @@ import '../styles/global.css';
     }
 
     #parent p {
-        font-family: 'Inter';
+        font-family: 'Libre Baskerville';
         font-weight: 400;
-        font-size: 1.5rem;
-        line-height: 3rem;
+        font-size: 1.4rem;
+        line-height: 2.5rem;
         color: black;
     }
 
@@ -91,5 +92,8 @@ import '../styles/global.css';
         margin: 0 auto; /* Center the container */
         padding: 20px; /* Optional: Add padding for visual spacing */
         box-sizing: border-box; /* Include padding in the width */
+        font-family: 'Libre Baskerville';
+        font-size: 1.2rem;
+        line-height: 2.25rem;
     }
 </style>
