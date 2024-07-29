@@ -1,5 +1,8 @@
 ---
 import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+
+import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -7,9 +10,86 @@ import Navbar from "../components/navbar.astro";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=League+Spartan:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
         <title>Membership - AIGSQ - Queen's University</title>
     </head>
     <body>
         <Navbar></Navbar>
+        <main id="parent">
+            <img src="Membership/thumbnail_image.png" alt="" />
+            <h1>The Premier Hub for Indian Graduate Students Ready to Elevate Their Academic Journey</h1>
+            <p id="text1">Are you an Indian graduate student at Queen's University looking to enhance your academic experience, 
+                connect with a diverse community, and take your studies to the next level?
+            </p>
+            <p id="text2">Welcome to your new academic home.</p>
+        </main>
+        <hr />
+        <section id="testimonies">
+            <div class="testimony">
+                <p class="blurb">"Nothing could make me more proud than co-founding the Association of Indian Graduate Students 
+                    at Queen's in 2018 with a core mission of peer-to-peer support in improving the belongingness and transition 
+                    for international students from the Indian subcontinent diaspora to the Queens community. I wish the current 
+                    team to keep contributing to creating a vibrant community that fosters cultural connections and supports 
+                    academic success for everyone."</p>
+                <span class="name">- Atul Jaiswal</span>
+            </div>
+        </section>
+        <hr />
+
+        <Footer></Footer>
     </body>
 </html>
+
+<style>
+    #parent {
+        /* background-color: aqua; */
+        display: grid;
+        grid-template-columns: repeat(60, 1fr);
+        grid-template-rows: repeat(11, 2.9rem);
+    }
+
+    #parent img {
+        grid-area: 1/3/span 10/span 24;
+        position: relative;
+        top: 5%;
+        height: 90%;
+        width: 100%;
+    }
+
+    #parent h1 {
+        grid-area: 1/30/span 1/span 30;
+        font-family: 'League Spartan';
+        font-weight: 700;
+        font-size: 4rem;
+        line-height: 4rem;
+        letter-spacing: 1px;
+        margin-top: 2%;
+        color: black;
+    }
+
+    #parent p {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 3rem;
+        color: black;
+    }
+
+    #parent #text1 {
+        grid-area: 6/30/span 1/span 30;
+    }
+
+    #parent #text2 {
+        grid-area: 9/30/span 1/span 30;
+    }
+
+    #testimonies .testimony {
+        text-align: center; 
+        width: 50%;
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Optional: Add padding for visual spacing */
+        box-sizing: border-box; /* Include padding in the width */
+    }
+</style>

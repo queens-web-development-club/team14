@@ -1,5 +1,8 @@
 ---
 import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+
+import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -7,9 +10,107 @@ import Navbar from "../components/navbar.astro";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=League+Spartan:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
         <title>Contact Us - AIGSQ - Queen's University</title>
     </head>
     <body>
         <Navbar></Navbar>
+        <main>
+            <h1>Send Us A Message!</h1>
+            <p>Are you an Indian graduate student at Queen's University looking to enhance your academic experience, connect with a 
+                diverse community, and take your studies to the next level?</p>
+            <p>Welcome to your new academic home.</p>
+            <hr/>
+            <form action="contactForm" method="post" action="">
+                <label for="name">Your Full Name</label>
+                <input type="text" name="name" required>
+                <label for="email">Your Email Address</label>
+                <input type="email" name="email" required>
+                <label for="message">Your Message</label>
+                <textarea name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+        <Footer></Footer>
     </body>
 </html>
+
+<style>
+    main {
+        margin: 0 5%;
+    }
+
+    h1 {
+        font-family: 'League Spartan';
+        font-weight: 700;
+        font-size: 5rem;
+        letter-spacing: 0.5px;
+        margin-top: 2%;
+        color: black;
+    }
+
+    p {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 3rem;
+        color: black;
+    }
+
+    hr {
+        margin: 4rem 0;
+    }
+
+    form {
+        position: relative;
+        /* left: calc((100% - 90%) / 2);
+        width: 90%; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* padding-top: 1rem; */
+        font-family: 'Inter';
+        font-weight: 300;
+        font-size: 1.75rem;
+        line-height: 3rem;
+        color: black;
+    }
+
+    form button {
+        position: relative;
+        left: calc((100% - 20%) / 2);
+        width: 20%;
+        margin-top: 1rem;
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 1.75rem;
+        line-height: 3rem;
+        color: white;
+        background-color: rgba(0, 110, 94, 0.85); /* #006E5E; */
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    input, textarea {
+        /* width: 100%; */
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #cccccc;
+        /* border-radius: 5px; */
+        /* box-sizing: border-box; */
+        font-size: 1em;
+        background-color: #f0f0f0;
+    }
+
+    input:focus, textarea:focus {
+        border-color: #666666;
+        background-color: #ffffff;
+    }
+
+    form button:hover {
+        background-color: rgba(94, 0, 0, 0.85);
+    }
+</style>
