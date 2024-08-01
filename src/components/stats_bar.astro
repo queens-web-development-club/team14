@@ -26,6 +26,47 @@ let memories = '80+';
     </section>
 </div>
 
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll('.num');
+        const options = { threshold: 1 };
+
+        const callback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // Total duration of the count in ms
+                let start = 0;
+
+                // const increment = 1;
+                const increment = target / (duration / 100);
+
+                const count = () => {
+                    start += increment;
+                    counter.innerText = Math.round(start);
+
+                    if (start < target) {
+                    setTimeout(count, 100);
+                    } else {
+                    counter.innerText = target;
+                    }
+                };
+
+                count();
+                observer.unobserve(counter);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(callback, options);
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    });
+</script> -->
+
 <style>
     .stat-bar-container {
         background-color: #5E0000;
