@@ -19,7 +19,10 @@ import '../styles/global.css';
     <body>
         <Navbar></Navbar>
         <main id="parent">
-            <img src="/Membership/thumbnail_image.png" alt="" />
+            <div class="image-container">
+                <img class="image" src="/Membership/thumbnail_image.png" alt="" />
+                <div class="caption">Here is the pic of the first AIGSQ Exec team 2018-19. Sincere thanks to them for making AIGSQ a reality.</div>
+            </div>
             <h1>The Premier Hub for Indian Graduate Students Ready to Elevate Their Academic Journey</h1>
             <p id="text1">Are you an Indian graduate student at Queen's University looking to enhance your academic experience, 
                 connect with a diverse community, and take your studies to the next level?
@@ -51,12 +54,33 @@ import '../styles/global.css';
         grid-template-rows: repeat(11, 2.9rem);
     }
 
-    #parent img {
-        grid-area: 1/3/span 10/span 24;
+    #parent .image-container {
+        grid-area: 1/3/span 9/span 24;
         position: relative;
         top: 5%;
-        height: 90%;
+        height: 97.5%;
+    }
+
+    .image {
+        height: 100%;
         width: 100%;
+    }
+
+    .caption {
+        position: absolute;
+        bottom: 0;      /* Makes caption be at bottom of image instead of outside */
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-align: center;
+        padding: 0.75rem;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .image-container:hover .caption {
+      opacity: 1;
     }
 
     #parent h1 {
