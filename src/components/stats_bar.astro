@@ -1,60 +1,60 @@
 ---
-let members = '20+';
-let photos = '100+';
-let events = '50+';
-let memories = '80+';
+let members = '20';
+let photos = '100';
+let events = '50';
+let memories = '80';
 ---
 
 <div class="stat-bar-container">
     <section>
         <div>
-            <p class="num">{members}</p>
+            <p class="num" data-target={members}>0</p>
             <p class="stat">Members</p>
         </div>
         <div>
-            <p class="num">{photos}</p>
+            <p class="num" data-target={photos}>0</p>
             <p class="stat">Photographs</p>
         </div>
         <div>
-            <p class="num">{events}</p>
+            <p class="num" data-target={events}>0</p>
             <p class="stat">Club Events</p>
         </div>
         <div>
-            <p class="num">{memories}</p>
+            <p class="num" data-target={memories}>20</p>
             <p class="stat">Memories</p>
         </div>
     </section>
 </div>
 
-<!-- <script>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
         const counters = document.querySelectorAll('.num');
-        const options = { threshold: 1 };
+        const options = { threshold: 1 };   // Specify the callback is only to be triggered when the entire target element is visible
 
         const callback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = +counter.getAttribute('data-target');
-                const duration = 2000; // Total duration of the count in ms
-                let start = 0;
+                    const counter = entry.target;   // The HTML element being observed
+                    const target = +counter.getAttribute('data-target');    // unary plus operator to turn string to number
+                    const duration = 1000;     // Total duration of the count in ms
+                    const updateInterval = 50; 
+                    let start = 0;
 
-                // const increment = 1;
-                const increment = target / (duration / 100);
+                    const increment = target / (duration / updateInterval);
 
-                const count = () => {
-                    start += increment;
-                    counter.innerText = Math.round(start);
+                    const count = () => {
+                        start += increment;
+                        counter.innerText = Math.round(start);
 
-                    if (start < target) {
-                    setTimeout(count, 100);
-                    } else {
-                    counter.innerText = target;
-                    }
-                };
+                        if (start < target) {
+                            setTimeout(count, updateInterval);
+                        } else {
+                            counter.innerText = target + '+';
+                        }
+                    };
 
-                count();
-                observer.unobserve(counter);
+                    count();
+                    observer.unobserve(counter);
                 }
             });
         };
@@ -65,7 +65,7 @@ let memories = '80+';
             observer.observe(counter);
         });
     });
-</script> -->
+</script>
 
 <style>
     .stat-bar-container {
