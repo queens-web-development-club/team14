@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 exports.handler = async function(event, context) {
     console.log("IN EMAIL SERVICE FUNCTION");
     try {
-        console.log(event);
+        // console.log(event);
         console.log(event.body);
     } catch (e) {
         console.log(e);
@@ -16,6 +16,9 @@ exports.handler = async function(event, context) {
     const email = queryString.get('email');
     const message = queryString.get('message');
     
+    console.log(process.env.EMAIL_USER);
+    console.log(process.env.EMAIL_PASS);
+
     // Configure nodemailer transporter
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -33,17 +36,17 @@ exports.handler = async function(event, context) {
         text: message
     };
 
-    try {
-        // Send the email
-        await transporter.sendMail(mailOptions);
-        return {
-            statusCode: 200,    // OK
-            body: JSON.stringify({ message: 'Email sent successfully' })
-        };
-    } catch (err) {
-        return {
-            statusCode: 500,    // Internal Server Error
-            body: JSON.stringify({ error: 'Failed to send email', details: err.message })
-        };
-    }
+    // try {
+    //     // Send the email
+    //     await transporter.sendMail(mailOptions);
+    //     return {
+    //         statusCode: 200,    // OK
+    //         body: JSON.stringify({ message: 'Email sent successfully' })
+    //     };
+    // } catch (err) {
+    //     return {
+    //         statusCode: 500,    // Internal Server Error
+    //         body: JSON.stringify({ error: 'Failed to send email', details: err.message })
+    //     };
+    // }
 };
