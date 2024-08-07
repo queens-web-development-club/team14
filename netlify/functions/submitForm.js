@@ -2,7 +2,13 @@ const nodemailer = require('nodemailer');
 
 /* When the form is submitted, Netlify looks to call this handler function. */
 exports.handler = async function(event, context) {
-    console.log("in email service function");
+    console.log("IN EMAIL SERVICE FUNCTION");
+    try {
+        console.log(event);
+        console.log(event.body);
+    } catch (e) {
+        console.log(e);
+    }
     const { name, email, message } = JSON.parse(event.body);    // Parse form data
     
     // Configure nodemailer transporter
