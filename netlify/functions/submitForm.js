@@ -9,7 +9,12 @@ exports.handler = async function(event, context) {
     } catch (e) {
         console.log(e);
     }
-    const { name, email, message } = JSON.parse(event.body);    // Parse form data
+
+    // Parse form data
+    const queryString = new URLSearchParams(event.body);
+    const name = queryString.get('name');
+    const email = queryString.get('email');
+    const message = queryString.get('message');
     
     // Configure nodemailer transporter
     const transporter = nodemailer.createTransport({
