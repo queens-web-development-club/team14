@@ -30,7 +30,7 @@ exports.handler = async function(event, context) {
 
     // Define the email options
     const mailOptions = {
-        from: email,
+        from: process.env.EMAIL_USER,
         to: process.env.EMAIL_RECEIVER,
         subject: `New message from ${name}`,
         text: `${message} \r\n I can be reached at ${email}`
