@@ -21,7 +21,9 @@ exports.handler = async function(event, context) {
 
     // Configure nodemailer transporter
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp-mail.outlook.com',
+        port: 587,  // uses STARTTLS
+        secure: false,  // true for 465, false for other ports (e.g., 587)
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
@@ -33,20 +35,20 @@ exports.handler = async function(event, context) {
         from: email,
         to: process.env.EMAIL_RECEIVER,
         subject: `New message from ${name}`,
-        text: message
+        text: `${message} \r\n I can be reached at ${email}`
     };
 
-    // try {
-    //     // Send the email
-    //     await transporter.sendMail(mailOptions);
-    //     return {
-    //         statusCode: 200,    // OK
-    //         body: JSON.stringify({ message: 'Email sent successfully' })
-    //     };
-    // } catch (err) {
-    //     return {
-    //         statusCode: 500,    // Internal Server Error
-    //         body: JSON.stringify({ error: 'Failed to send email', details: err.message })
-    //     };
-    // }
+    try {
+        // Send the email
+        await transporter.sendMail(mailOptions);
+        return {
+            statusCode: 200,    // OK
+            body: JSON.stringify({ message: 'Email sent successfully' })
+        };
+    } catch (err) {
+        return {
+            statusCode: 500,    // Internal Server Error
+            body: JSON.stringify({ error: 'Failed to send email', details: err.message })
+        };
+    }
 };
