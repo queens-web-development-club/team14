@@ -28,42 +28,45 @@ let memories = '80';
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const counters = document.querySelectorAll('.num');
-        const options = { threshold: 1 };   // Specify the callback is only to be triggered when the entire target element is visible
-
-        const callback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;   // The HTML element being observed
-                    const target = +counter.getAttribute('data-target');    // unary plus operator to turn string to number
-                    const duration = 1000;     // Total duration of the count in ms
-                    const updateInterval = 50; 
-                    let start = 0;
-
-                    const increment = target / (duration / updateInterval);
-
-                    const count = () => {
-                        start += increment;
-                        counter.innerText = Math.round(start);
-
-                        if (start < target) {
-                            setTimeout(count, updateInterval);
-                        } else {
-                            counter.innerText = target + '+';
-                        }
-                    };
-
-                    count();
-                    observer.unobserve(counter);
-                }
+        setTimeout(setupObserver, 500);     // Wait 500ms after DOM Content loads to ensure proper behaviour on main page due to loading
+        function setupObserver() {
+            const counters = document.querySelectorAll('.num');
+            const options = { threshold: 1 };   // Specify callback is only to be triggered when the entire target element is visible
+            
+            const callback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {     // Target is on screen
+                        const counter = entry.target;   // The HTML element being observed
+                        const target = +counter.getAttribute('data-target');    // unary plus operator to turn string to number
+                        const duration = 1000;     // Total duration of the count in ms
+                        const updateInterval = 50; 
+                        let start = 0;
+                        
+                        const increment = target / (duration / updateInterval);
+                        
+                        const count = () => {
+                            start += increment;
+                            counter.innerText = Math.round(start);
+                            
+                            if (start < target) {
+                                setTimeout(count, updateInterval);
+                            } else {
+                                counter.innerText = target + '+';
+                            }
+                        };
+                        
+                        count();
+                        observer.unobserve(counter);
+                    }
+                });
+            };
+            
+            // Observe all counter elements
+            const observer = new IntersectionObserver(callback, options);
+            counters.forEach(counter => {
+                observer.observe(counter);
             });
-        };
-
-        const observer = new IntersectionObserver(callback, options);
-
-        counters.forEach(counter => {
-            observer.observe(counter);
-        });
+        }
     });
 </script>
 
