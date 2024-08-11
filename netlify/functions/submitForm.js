@@ -33,7 +33,7 @@ exports.handler = async function(event, context) {
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_RECEIVER,
         subject: `New message from ${name}`,
-        text: `${message} \r\n I can be reached at ${email}`
+        text: `${message}\r\nI can be reached at ${email}`
     };
 
     try {

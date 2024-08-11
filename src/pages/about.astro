@@ -25,14 +25,30 @@ let ambassadors = "/AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
         <Navbar></Navbar>
         <header>
             <h1>About Us</h1>
-            <h2>Empowering Indian Scholars, Embracing <br/> Cultural Diversity!</h2>
+            <h3 id="heading-blurb">Empowering Indian Scholars, Embracing <br/> Cultural Diversity!</h3>
         </header>
         <ImageScaffold></ImageScaffold>
         <StatsBar></StatsBar>
         <ExecTeam></ExecTeam>
-        <h1 id="ambassadors-title">Ambassadors</h1>
+        <h2 id="ambassadors-title">Ambassadors</h2>
         <!-- <img src={ambassadorsImage.url} alt="" id="ambassadors"> -->
         <img src={ambassadors} alt="" id="ambassadors">
+        <h2>Executive History</h2>
+        <section id="exec-history">
+            <div>
+                <h3>Founders</h3>
+                <li>Atul Jaiswal</li>
+                <li>Uchitta Vashist</li>
+            </div>
+            <div>
+                <h3>Past Presidents</h3>
+                <li>2023 - Bhavya Bogra</li>
+                <li>2022 - Bhavya Bogra</li>
+                <li>2021 - Abhishek Awasthi - Navjit Gaurav</li>
+                <li>2020 - Abhishek Awasthi - Gagandeep Kaur</li>
+                <li>Rohit Shukla</li>
+            </div>
+        </section>
         <Footer></Footer>
     </body>
 </html>
@@ -52,16 +68,8 @@ let ambassadors = "/AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
         letter-spacing: 1px;
         color: white;
     }
-
+    
     h2 {
-        font-family: 'Libre Baskerville';
-        font-weight: 400;
-        font-size: 2rem;
-        line-height: 3rem;
-        color: white;
-    }
-
-    #ambassadors-title {
         padding-top: 6vh;
         text-align: center;
         font-family: 'League Spartan';
@@ -69,9 +77,38 @@ let ambassadors = "/AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
         color: black;
     }
 
+    #heading-blurb {
+        /* font-family: 'Libre Baskerville';
+        font-weight: 400; */
+        color: white;
+    }
+
+    h3 {
+        /* font-family: 'League Spartan';
+        font-weight: 500; */
+        font-family: 'Libre Baskerville';
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
     #ambassadors {
         margin-top: 20px;
         width: 50%;
         margin-left: 25%;
+    }
+
+    #exec-history {
+        position: relative;
+        left: 25%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    li {
+        font-family: 'Libre Baskerville';
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+        line-height: 2.5rem;
     }
 </style>
