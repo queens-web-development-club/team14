@@ -24,76 +24,92 @@ let events2024 = ["1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Gr
     </head>
     <body>
         <Navbar></Navbar>
-
-        <div class="container">
-            <h1>Archived Events</h1>
-            <hr/>
-            <div class="tabs">
-                <button id="2024-btn" class="tab-link">2024</button>
-                <button id="2023-btn" class="tab-link">2023</button>
-                <button id="2022-btn" class="tab-link">2022</button>
-                <button id="2021-btn" class="tab-link">2021</button>
-            </div>
-    
-            <div id="2024" class="tab-content">
-                {events2024.map(image => {
-                    var afterDashIdx = image.indexOf("-");
-                    afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
-                    var dotIdx = image.lastIndexOf(".");
-                    afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
-                    return (
-                        <div class="event">
-                            <img src={`/Events/2024/${image}`} alt="" /> 
-                            <div class="event-title">{dotIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
-                        </div>
-                    )
-                })}
-            </div>
-    
-            <div id="2023" class="tab-content">
-                {events2023.map(image => {
-                    var afterDashIdx = image.indexOf("-");
-                    afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
-                    var dotIdx = image.lastIndexOf(".");
-                    afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
-                    return (
-                        <div class="event">
-                            <img src={`/Events/2023/${image}`} alt="" /> 
-                            <div class="event-title">{dotIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
-                        </div>
-                    )
-                })}
-            </div>
-    
-            <div id="2022" class="tab-content">
-                {events2022.map(image => {
-                    var afterDashIdx = image.indexOf("-");
-                    afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
-                    var dotIdx = image.lastIndexOf(".");
-                    afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
-                    return (
-                        <div class="event">
-                            <img src={`/Events/2022/${image}`} alt="" /> 
-                            <div class="event-title">{dotIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
-                        </div>
-                    )
-                })}
-            </div>
-    
-            <div id="2021" class="tab-content">
-                {events2021.map(image => {
-                    var afterDashIdx = image.indexOf("-");
-                    afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
-                    var dotIdx = image.lastIndexOf(".");
-                    afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
-                    return (
-                        <div class="event">
-                            <img src={`/Events/2021/${image}`} alt="" /> 
-                            <div class="event-title">{afterDashIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
-                        </div>
-                    )
-                })}
-            </div>
+        <div class="content-container">
+            <section>
+                <h1>Events</h1>
+                <li>Join our Meet and Greet event for international students, designed to ease their transition by fostering connections, providing essential information, and creating a welcoming community.</li>
+                <li>Celebrate Diwali, the festival of lights, which signifies the victory of light over darkness and knowledge over ignorance.</li>
+                <li>Experience Holi, the vibrant festival of colors, symbolizing the arrival of spring and the triumph of good over evil.</li>
+                <li>Honor Republic Day, which commemorates the adoption of the Indian Constitution and celebrates India’s rich heritage and democratic values.</li>
+            </section>
+            <section>
+                <h1>Archived Events</h1>
+                <hr/>
+                <div class="tabs">
+                    <button id="2024-btn" class="tab-link">2024</button>
+                    <button id="2023-btn" class="tab-link">2023</button>
+                    <button id="2022-btn" class="tab-link">2022</button>
+                    <button id="2021-btn" class="tab-link">2021</button>
+                </div>
+        
+                <div id="2024" class="tab-content">
+                    {events2024.map(image => {
+                        var afterDashIdx = image.indexOf("-");
+                        afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
+                        var dotIdx = image.lastIndexOf(".");
+                        afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
+                        return (
+                            <div class="event">
+                                <div class="img-container">
+                                    <img src={`/Events/2024/${image}`} alt="" /> 
+                                </div>
+                                <div class="event-title">{dotIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
+                            </div>
+                        )
+                    })}
+                </div>
+        
+                <div id="2023" class="tab-content">
+                    {events2023.map(image => {
+                        var afterDashIdx = image.indexOf("-");
+                        afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
+                        var dotIdx = image.lastIndexOf(".");
+                        afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
+                        return (
+                            <div class="event">
+                                <div class="img-container">
+                                    <img src={`/Events/2023/${image}`} alt="" /> 
+                                </div>
+                                <div class="event-title">{dotIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
+                            </div>
+                        )
+                    })}
+                </div>
+        
+                <div id="2022" class="tab-content">
+                    {events2022.map(image => {
+                        var afterDashIdx = image.indexOf("-");
+                        afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
+                        var dotIdx = image.lastIndexOf(".");
+                        afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
+                        return (
+                            <div class="event">
+                                <div class="img-container">
+                                    <img src={`/Events/2022/${image}`} alt="" /> 
+                                </div>
+                                <div class="event-title">{dotIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
+                            </div>
+                        )
+                    })}
+                </div>
+        
+                <div id="2021" class="tab-content">
+                    {events2021.map(image => {
+                        var afterDashIdx = image.indexOf("-");
+                        afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
+                        var dotIdx = image.lastIndexOf(".");
+                        afterDashIdx > dotIdx ? afterDashIdx = 0 : true ;
+                        return (
+                            <div class="event">
+                                <div class="img-container">
+                                    <img src={`/Events/2021/${image}`} alt="" /> 
+                                </div>
+                                <div class="event-title">{afterDashIdx == -1 ? "err: bad file name" : image.slice(afterDashIdx, dotIdx)}</div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </section>
         </div>
 
         <Footer></Footer>
@@ -159,7 +175,7 @@ let events2024 = ["1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Gr
 </html>
 
 <style>
-    .container {
+    .content-container {
         width: 85%;
         margin: 0 auto;
     }
@@ -171,7 +187,12 @@ let events2024 = ["1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Gr
         letter-spacing: 1px;
         color: black;
         text-align: left;
-        margin-top: 20px;
+        margin-top: 6rem;
+        margin-bottom: 3rem;
+    }
+    
+    .content-container section:first-of-type h1 {
+        margin-top: 2rem;
     }
 
     .tabs {
@@ -209,15 +230,25 @@ let events2024 = ["1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Gr
         flex-direction: column;
         align-items: center;
         margin-bottom: 20px;
-        /* width: 20%; */
     }
 
-    .event img {
+    .event .img-container {
         width: 28rem;
         height: 28rem;
-        /* background-color: #ccc; */
+        background-color: #ccc;
         margin-bottom: 10px;
         /* margin-right: 20px; */
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .event .img-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;    /* Ensures the image keeps its aspect ratio */
+        transform: scale(1.1);  /* Slightly scale the image */
     }
 
     .event-title {
@@ -225,7 +256,13 @@ let events2024 = ["1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Gr
         color: white;
         padding: 10px;
         width: 65%;
-        /* width: 250px; */
         text-align: center;
+    }
+
+    li {
+        font-family: 'Libre Baskerville';
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+        line-height: 2.5rem;
     }
 </style>
