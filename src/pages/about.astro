@@ -6,9 +6,9 @@ import StatsBar from "../components/stats_bar.astro";
 import ExecTeam from "../components/exec_team.astro";
 
 import '../styles/global.css';
-// import {ambassadorsImage} from "../api/getCurrentTeamMembers";
 
-let ambassadors = "/AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
+import {ambassadorsImage} from "../api/getCurrentTeamMembers";
+// let ambassadors = "/AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
 ---
 
 <html lang="en">
@@ -32,8 +32,8 @@ let ambassadors = "/AboutUs/TeamMembers/Ambassadors/AIGSQ_ambassadors.jpg"
         <StatsBar></StatsBar>
         <ExecTeam></ExecTeam>
         <h2 id="ambassadors-title">Ambassadors</h2>
-        <!-- <img src={ambassadorsImage.url} alt="" id="ambassadors"> -->
-        <img src={ambassadors} alt="" id="ambassadors">
+        <img src={ambassadorsImage.url} alt="" id="ambassadors">
+        <!-- <img src={ambassadors} alt="" id="ambassadors"> -->
         <h2>Executive History</h2>
         <section id="exec-history">
             <div>

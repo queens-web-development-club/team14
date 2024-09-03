@@ -4,11 +4,13 @@ import Footer from "../components/footer.astro";
 
 import '../styles/global.css';
 
-let events2021 = ["Event 1.jpg", "Event 2.jpg", "Event 3.jpg", "Event 4.jpg"];
-let events2022 = ["1-Holi.jpg", "2-Holi.jpg", "3-Holi.jpg", "1-Intercultural Fest.jpg", "2-Intercultural Fest.jpg", "3-Intercultural Fest.jpg",
-                     "1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Greet.jpg", "4-Meet and Greet.jpg"];
-let events2023 = ["Meet and Greet.jpg", "1-Diwali.jpeg", "2-Diwali.jpg", "3-Diwali.jpg"];
-let events2024 = ["Holi.jpeg", "1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Greet.jpg"];
+import {yearsContentList} from "../api/getEventsForImageArchive";
+
+// let events2021 = ["Event 1.jpg", "Event 2.jpg", "Event 3.jpg", "Event 4.jpg"];
+// let events2022 = ["1-Holi.jpg", "2-Holi.jpg", "3-Holi.jpg", "1-Intercultural Fest.jpg", "2-Intercultural Fest.jpg", "3-Intercultural Fest.jpg",
+//                      "1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Greet.jpg", "4-Meet and Greet.jpg"];
+// let events2023 = ["Meet and Greet.jpg", "1-Diwali.jpeg", "2-Diwali.jpg", "3-Diwali.jpg"];
+// let events2024 = ["Holi.jpeg", "1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "3-Meet and Greet.jpg"];
 ---
 
 <html lang="en">
@@ -36,13 +38,42 @@ let events2024 = ["Holi.jpeg", "1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "
                 <h1>Archived Events</h1>
                 <hr/>
                 <div class="tabs">
+                    {yearsContentList.map(yearContentEntry => {
+                        const year = yearContentEntry.fields.year;
+                        return (
+                            <button id={`${year}-btn`} class="tab-link">{year}</button>
+                        )
+                    })}
+                </div>
+                <!-- <div class="tabs">
                     <button id="2024-btn" class="tab-link">2024</button>
                     <button id="2023-btn" class="tab-link">2023</button>
                     <button id="2022-btn" class="tab-link">2022</button>
                     <button id="2021-btn" class="tab-link">2021</button>
-                </div>
-        
-                <div id="2024" class="tab-content">
+                </div> -->
+                
+                {yearsContentList.map(yearContentEntry => {
+                    const year = yearContentEntry.fields.year;
+                    const eventContentList = yearContentEntry.fields.images;
+                    
+                    return (
+                        <div id={year} class="tab-content">
+                            {eventContentList.map(eventContentEntry => {
+                                const imageTitle = eventContentEntry.fields.title;
+                                const image = eventContentEntry.fields.file.url;
+                                return (
+                                    <div class="event">
+                                        <div class="img-container">
+                                            <img src={image} alt="" /> 
+                                        </div>
+                                        <div class="event-title">{imageTitle}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )
+                })}
+                <!-- <div id="2024" class="tab-content">
                     {events2024.map(image => {
                         var afterDashIdx = image.indexOf("-");
                         afterDashIdx == -1 ? afterDashIdx = 0 : afterDashIdx++ ;
@@ -108,7 +139,7 @@ let events2024 = ["Holi.jpeg", "1-Meet and Greet.jpg", "2-Meet and Greet.jpg", "
                             </div>
                         )
                     })}
-                </div>
+                </div> -->
             </section>
         </div>
 
