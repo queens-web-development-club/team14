@@ -1,14 +1,14 @@
 ---
-let execTeam1 = ["/AboutUs/TeamMembers/ExecTeam/Ahamed.jpg", "/AboutUs/TeamMembers/ExecTeam/Aishwarya.jpg"];
-let execTeam2 = ["/AboutUs/TeamMembers/ExecTeam/Arijit.jpg", "/AboutUs/TeamMembers/ExecTeam/bhaya.jpg"];
-let execTeam3 = ["/AboutUs/TeamMembers/ExecTeam/Harsh.jpg", "/AboutUs/TeamMembers/ExecTeam/Neeraj.jpg"];
+import {execTeam} from "../api/getCurrentTeamMembers";
+// let execTeam1 = ["/AboutUs/TeamMembers/ExecTeam/Ahamed.jpg", "/AboutUs/TeamMembers/ExecTeam/Aishwarya.jpg"];
+// let execTeam2 = ["/AboutUs/TeamMembers/ExecTeam/Arijit.jpg", "/AboutUs/TeamMembers/ExecTeam/bhaya.jpg"];
+// let execTeam3 = ["/AboutUs/TeamMembers/ExecTeam/Harsh.jpg", "/AboutUs/TeamMembers/ExecTeam/Neeraj.jpg"];
 ---
 
-<section>
+<!-- <section>
     <h1>Our Executive Committee</h1>
     <div class="row">
         <div class="column">
-            <!-- Display images from images1 array -->
             {execTeam1.map(image => (
                 <img src={`${image}`}/>
             ))}
@@ -22,6 +22,33 @@ let execTeam3 = ["/AboutUs/TeamMembers/ExecTeam/Harsh.jpg", "/AboutUs/TeamMember
             {execTeam3.map(image => (
                 <img src={`${image}`}/>
             ))}
+        </div>
+    </div>
+</section> -->
+
+<section>
+    <h1>Our Executive Committee</h1>
+    <div class="row">
+        <div class="column">
+            {execTeam.map((imgEntry, idx) => {
+                if (idx % 3 == 0) {
+                    return <img src={imgEntry.fields.file.url}/>
+                }
+            })}
+        </div>
+        <div class="column">
+            {execTeam.map((imgEntry, idx) => {
+                if (idx % 3 == 1) {
+                    return <img src={imgEntry.fields.file.url}/>
+                }
+            })}
+        </div>
+        <div class="column">
+            {execTeam.map((imgEntry, idx) => {
+                if (idx % 3 == 2) {
+                    return <img src={imgEntry.fields.file.url}/>
+                }
+            })}
         </div>
     </div>
 </section>

@@ -7,4 +7,14 @@ async function getAmbassadors() {
     const ambassadorsImage = ambassadorsImageMedia.fields.file;
     return ambassadorsImage;
 }
+
+async function getExecTeam() {
+    const execTeamContentEntry = await contentfulClient.getEntry("4GCprAjDmvLXyCcxkezxYC")
+                                            .catch((err) => console.log(err));
+    const execTeamImageEntries = execTeamContentEntry.fields.images;
+    console.log(execTeamImageEntries);
+    return execTeamImageEntries; 
+}
+
 export const ambassadorsImage = await getAmbassadors();
+export const execTeam = await getExecTeam();
